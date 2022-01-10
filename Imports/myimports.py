@@ -7,3 +7,5 @@ import matplotlib.pyplot
 import sys
 import heapq
 from timeit import default_timer as timer
+from matplotlib import pyplot
+from Experiments.Sorting.AllForOne import *
