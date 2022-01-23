@@ -12,3 +12,5 @@ import heapq
 from timeit import default_timer as timer
 from matplotlib import pyplot
 from Experiments.Sorting.AllForOne import *
+import networkit
+import networkx
