@@ -21,8 +21,11 @@ with open('output.csv', 'w') as csvfile:
     tempii = []
     for n in nn:
         for r in rr:
-            # Creo un Grafo G Con m archi totali
+
             G = networkx.erdos_renyi_graph(n, r)
+            for (u, v) in G.edges():
+                G.edges[u, v]['weight'] = random.randint(0, 1000000)
+
             m = G.number_of_edges()
 
             # Lista per i tempi di questo try
@@ -31,10 +34,11 @@ with open('output.csv', 'w') as csvfile:
             for i in range(20):
 
                 cpu = time.process_time()
-                d, p = networkx.single_source_dijkstra(G, source=random.choice(list(G.nodes())))
-                tempi.append(time.process_time() - cpu)
-
+                d, p = networkx.single_source_dijkstra(G=G, source=random.choice(list(G.nodes())), weight="weight")
                 # Tutti i percorsi:  d.values()
+
+                # d, p = networkx.single_source_bellman_ford(G=G, source=random.choice(list(G.nodes())),weight="weight")
+                tempi.append(time.process_time() - cpu)
 
             elapsed = numpy.median(tempi)  # Faccio la media dei tempi
 

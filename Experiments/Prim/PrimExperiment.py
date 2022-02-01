@@ -1,23 +1,15 @@
+import networkx.algorithms.tree.mst
+
 from Imports.myimports import *
 
 
-
-"""
-Mi creo intanto il file di output di tipo csv dove andrò a salvare i risultati dell'esperimento
-"""
 with open('output.csv', 'w') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['n', 'm', 'hfn', 'hfm', 'tempo'])  # numero archi totali (m)
 
-    """
-    Alcuni dei parametri che dovrei leggere da un file ma che in questo esempio sono hardcoded
-    """
-    rr = [0.1, 0.3]
+    rr = [0.2, 0.4]
     nn = [1000, 3000]
 
-    '''
-    Mi preparo una lista di tempi per l'esperimento
-    '''
     tempii = []
     for n in nn:
         for r in rr:
@@ -28,10 +20,10 @@ with open('output.csv', 'w') as csvfile:
             # Lista per i tempi di questo try
             tempi = []
 
-            for i in range(20):
+            for i in range(10):
 
                 cpu = time.process_time()
-                d, p = networkx.single_source_dijkstra(G, source=random.choice(list(G.nodes())))
+                MinimumSpanningTree = networkx.algorithms.tree.mst.prim_mst_edges(minimum=True, G=G)
                 tempi.append(time.process_time() - cpu)
 
                 # Tutti i percorsi:  d.values()

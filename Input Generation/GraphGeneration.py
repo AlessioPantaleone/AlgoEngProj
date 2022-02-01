@@ -14,6 +14,8 @@ print("COMPLETE GRAPH ARCS:", COMPLETEGRAPH.number_of_edges())
 PATHGRAPH = nx.path_graph(10)
 print("PATH GRAPH ARCS:", PATHGRAPH.number_of_edges())
 
+WHEIGHTEDGRAPH = nx.er
+
 
 # DEGREE DISTRIBUTIONS
 # Node centrality index which ranks nodes by their degree
