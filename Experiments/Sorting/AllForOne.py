@@ -1,3 +1,7 @@
+import random
+import statistics
+from random import randrange
+
 def heapSort(array):
     n = len(array)
 
@@ -9,7 +13,7 @@ def heapSort(array):
     for i in range(n - 1, 0, -1):
         array[i], array[0] = array[0], array[i]
 
-        # Heapify root element
+        # Faccio Heapify sull radice
         heapify(array, i, 0)
 
 
@@ -41,20 +45,29 @@ def insertionSort(arr):
         arr[j + 1] = key
 
 
-def quickSort(arr, low=0, high="Unset"):
+def quickSort(arr, low=0, high="Unset", pivotposition="high"):
     if high == "Unset":
         high = len(arr) - 1
     if len(arr) == 1:
         return arr
     if low < high:
-        pi = quickpartition(arr, low, high)
+        pi = quickpartition(arr, low, high, pivotposition)
         quickSort(arr, low, pi - 1)
         quickSort(arr, pi + 1, high)
 
 
-def quickpartition(arr, low, high):
+def quickpartition(arr, low, high, pivotposition="high"):
+
     i = (low - 1)
-    pivot = arr[high]  # Ricorda di cambiare questo in caso di modifica scelta del pivot o di aggiungerlo in config
+    if pivotposition == "high":
+        pivot = arr[high]  # Ricorda di cambiare questo in caso di modifica scelta del pivot o di aggiungerlo in config
+    if pivotposition == "low":
+        pivot = arr[low-1]  # Ricorda di cambiare questo in caso di modifica scelta del pivot o di aggiungerlo in config
+        arr[low-1], arr[high] = arr[high], arr[low-1]
+    if pivotposition == "random":
+        ran = randrange(start=low-1, stop=high+1)
+        pivot = arr[ran]  # Ricorda di cambiare questo in caso di modifica scelta del pivot o di aggiungerlo in config
+        arr[ran], arr[high] = arr[high], arr[ran]
 
     for j in range(low, high):
         if arr[j] <= pivot:

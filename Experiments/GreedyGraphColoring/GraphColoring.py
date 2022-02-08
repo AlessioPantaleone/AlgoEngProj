@@ -24,7 +24,7 @@ with open('output.csv', 'w') as csvfile:
             cpu = time.process_time()
 
             for attempt in range(10):
-                d = nx.coloring.greedy_color(G, strategy='connected_sequential_bfs')
+                d = nx.coloring.greedy_color(G)
                 col = set()
                 for j in d.values():
                     col.add(j)

@@ -3,7 +3,7 @@
 """
 Example for reading configs
 """
-FILENAME= 'ExperimentConfig.ini'
+FILENAME = 'ExperimentConfig.ini'
 
 import configparser
 

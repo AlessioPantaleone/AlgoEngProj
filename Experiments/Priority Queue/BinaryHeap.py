@@ -1,5 +1,6 @@
 from Imports.myimports import *
 
+
 class BinaryHeap:
     def __init__(self, arr=None):
         if arr is None:
@@ -33,14 +34,13 @@ class BinaryHeap:
                 self.fixHeap(0)
             return max
 
-
     def getMax(self):
         return self.heap[0]
 
     def getLength(self):
         return len(self.heap)
 
-    def heapify(self, node : int):
+    def heapify(self, node: int):
         if node > len(self.heap):
             return
         self.heapify((2 * node) + 1)
@@ -54,11 +54,11 @@ class BinaryHeap:
 
 if __name__ == "__main__":
     for iterations in range(15):
-        RandomArr = random.sample(range(100), 50)
-        PythonSorted = RandomArr.copy()
-        PythonSorted.sort(reverse=True)
-        Heap = BinaryHeap(RandomArr)
 
+        RandomArr = random.sample(range(100), 50)
+        PythonSorted = RandomArr.copy().sort(reverse=True)
+
+        Heap = BinaryHeap(RandomArr)
 
         Sorted = []
         while Heap.getLength() > 0:
@@ -68,7 +68,3 @@ if __name__ == "__main__":
         print(PythonSorted)
         assert Sorted == PythonSorted
         print("END ITERATION")
-
-
-
-
