@@ -28,7 +28,7 @@ f = open(filename, 'w')
 
 with f:
     writer = csv.writer(f)
-
+    print(data)
     for row in data:
         writer.writerow(row)
 

@@ -12,13 +12,12 @@ def heapSort(array):
     # Estraggo la radice e fixo l'heap
     for i in range(n - 1, 0, -1):
         array[i], array[0] = array[0], array[i]
-
         # Faccio Heapify sull radice
         heapify(array, i, 0)
 
 
 def heapify(array, n, i):
-    # Trovo il valore maggiore tra tutti
+    # Trovo il valore maggiore tra radice, figlio destro e sinistro
     largest = i
     l = 2 * i + 1
     r = 2 * i + 2

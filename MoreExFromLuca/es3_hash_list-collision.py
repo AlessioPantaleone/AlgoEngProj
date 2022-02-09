@@ -18,7 +18,7 @@ df = pd.read_csv("es3_dati.csv")
 print("Dati grezzi: \n", df, "\n\n")
 
 # Modulo, numero primo non troppo vicino ad una potenza di 2
-m = 701;
+m = 701
 
 # Tabella Hash di lunghezza m
 T = [[None] for _ in range(m)]
