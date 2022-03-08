@@ -58,8 +58,8 @@ if __name__ == "__main__":
             for trials in range(int(configuration["DEFAULT"]["trials"])):
                 StartTime = time.process_time()
                 distances, paths = networkx.single_source_dijkstra(G=Graph,
-                                                    source=random.choice(list(Graph.nodes())),
-                                                    weight="weight")
+                                                                   source=random.choice(list(Graph.nodes())),
+                                                                   weight="weight")
                 Elapsed = time.process_time() - StartTime
                 assert max(distances.values()) < n * 100
                 ElapsedTimes.append(Elapsed)

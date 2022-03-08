@@ -5,8 +5,8 @@ print(df)
 
 seaborn.set_theme()
 
-seaborn.lineplot(x="", y="", style="", hue="", data=df, linewidth=3, marker="o")
+seaborn.lineplot(x="Nodes", y="Time", hue="Edges", data=df, linewidth=3, marker="o")
 pyplot.show()
 
-seaborn.lineplot(x="", y="", style="", hue="", data=df, linewidth=3, marker="o")
+seaborn.lineplot(x="Edges", y="Time", hue="Nodes", data=df, linewidth=3, marker="o")
 pyplot.show()

@@ -67,7 +67,6 @@ class Graph:
                 if mark[v] == False:
                     if tipo == "ampiezza":
                         F.insert(0,v)
-                    elif tipo == "profondità": F.append(v)
                     mark[v] = True
                     T.add_edge([[u,v]])
         return T
